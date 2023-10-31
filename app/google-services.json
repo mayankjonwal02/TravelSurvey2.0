@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759553283432",
+    "project_id": "travelsurvey-2",
+    "storage_bucket": "travelsurvey-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759553283432:android:7136dbcaa9144e1ba032dd",
+        "android_client_info": {
+          "package_name": "com.jonwal.travel_survey_4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfFTosLQDdUMbx-JbHbvDgwYb4H2aKI8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
