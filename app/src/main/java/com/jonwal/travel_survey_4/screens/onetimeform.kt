@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jonwal.travel_survey_4.navigation.screens
+import com.jonwal.travel_survey_4.screens.RadioGroup
 import com.jonwal.travel_survey_4.screens.getsharedpref
 
 @Composable
@@ -34,41 +35,52 @@ fun onetimeform(mynavHostController: NavHostController) {
     var phone by remember { mutableStateOf("") }
     var homeAddress by remember { mutableStateOf("") }
     var workAddress by remember { mutableStateOf("") }
-    var selectedGender by remember { mutableStateOf("") }
+    var selectedGender = remember { mutableStateOf("") }
+    var education = remember { mutableStateOf("") }
+    var income = remember { mutableStateOf("") }
 
     var context = LocalContext.current
 
     @SuppressLint("NewApi")
     @RequiresApi(Build.VERSION_CODES.O)
     fun senddata() {
-        if (name.isEmpty() || age.isEmpty() || email.isEmpty() || phone.isEmpty() || homeAddress.isEmpty() || workAddress.isEmpty() || selectedGender.isEmpty()) {
+        if (name.isEmpty() || age.isEmpty() || education.value.isEmpty() ||
+            income.value.isEmpty() || email.isEmpty() || phone.isEmpty() || homeAddress.isEmpty() || workAddress.isEmpty() || selectedGender.value.isEmpty()) {
             Toast.makeText(context, "Field Empty", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val deviceId = getAndroidID(context) ?: "UNKNOWN"
+        if(phone.length == 10){
+            val deviceId = getAndroidID(context) ?: "UNKNOWN"
 
-        val data = MyUserData(
-            deviceId = deviceId,
-            name = name,
-            age = age,
-            email = email,
-            phone = phone,
-            homeAddress = homeAddress,
-            workAddress = workAddress,
-            selectedGender = selectedGender
-        )
+            val data = MyUserData(
+                deviceId = deviceId,
+                name = name,
+                age = age,
+                email = email,
+                phone = phone,
+                education = education.value,
+                income = income.value,
+                homeAddress = homeAddress,
+                workAddress = workAddress,
+                selectedGender = selectedGender.value
+            )
 
-        FirebaseFirestore.getInstance().collection("UserFormData")
-            .add(data)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show()
-                getsharedpref(context).edit().putBoolean("formfilled",true).apply()
-                mynavHostController.navigate(screens.startservice.route)
-            }
-            .addOnFailureListener {
-                Toast.makeText(context, "Network Error", Toast.LENGTH_SHORT).show()
-            }
+            FirebaseFirestore.getInstance().collection("UserFormData")
+                .add(data)
+                .addOnSuccessListener {
+                    Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show()
+                    getsharedpref(context).edit().putBoolean("formfilled", true).apply()
+                    mynavHostController.navigate(screens.startservice.route)
+                }
+                .addOnFailureListener {
+                    exception ->
+                    Toast.makeText(context, exception.message, Toast.LENGTH_SHORT).show()
+                }
+        }
+        else {
+            Toast.makeText(context,"Phone Number should be of lenght 10",Toast.LENGTH_SHORT).show()
+        }
     }
 
     Column(
@@ -109,50 +121,58 @@ fun onetimeform(mynavHostController: NavHostController) {
         var dropdown by remember {
             mutableStateOf(false)
         }
-        Column() {
-            OutlinedTextField(
-                value = selectedGender,
-                onValueChange = { selectedGender = it },
-                label = { Text("Gender") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White)
-                    .padding(8.dp)
-                    .onFocusChanged { it ->
-                        if (it.isFocused) {
-                            dropdown = true
-                        } else if (!it.isFocused) {
-                            dropdown = false
-                        }
-                    },
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    unfocusedBorderColor = Color.Gray,
-                    unfocusedLabelColor = Color.Gray,
-                    focusedLabelColor = Color.Blue,
-                    focusedBorderColor = Color.Blue
-                )
-            )
-            if (dropdown) {
-                DropdownMenu(
-                    expanded = dropdown,
-                    onDismissRequest = { dropdown = false },
-                    modifier = Modifier.background(
-                        Color.White
-                    )
-                ) {
-                    for (i in listOf("Male", "Female", "Non-Binary")) {
-                        DropdownMenuItem(
-                            modifier = Modifier.background(Color.White),
-                            onClick = {
-                                selectedGender = i
-                                dropdown = false
-                            }) {
-                            Text(text = i, color = Color.Black)
-                        }
-                    }
-                }
-            }
-        }
+
+
+        RadioGroup(
+            options = listOf("Male","Female","Non-Binary"),
+            selectedOption = selectedGender,
+            label = "Gender",
+            onOptionSelected = {}
+        )
+//        Column() {
+//            OutlinedTextField(
+//                value = selectedGender,
+//                onValueChange = { selectedGender = it },
+//                label = { Text("Gender") },
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .background(Color.White)
+//                    .padding(8.dp)
+//                    .onFocusChanged { it ->
+//                        if (it.isFocused) {
+//                            dropdown = true
+//                        } else if (!it.isFocused) {
+//                            dropdown = false
+//                        }
+//                    },
+//                colors = TextFieldDefaults.outlinedTextFieldColors(
+//                    unfocusedBorderColor = Color.Gray,
+//                    unfocusedLabelColor = Color.Gray,
+//                    focusedLabelColor = Color.Blue,
+//                    focusedBorderColor = Color.Blue
+//                )
+//            )
+//            if (dropdown) {
+//                DropdownMenu(
+//                    expanded = dropdown,
+//                    onDismissRequest = { dropdown = false },
+//                    modifier = Modifier.background(
+//                        Color.White
+//                    )
+//                ) {
+//                    for (i in listOf("Male", "Female", "Non-Binary")) {
+//                        DropdownMenuItem(
+//                            modifier = Modifier.background(Color.White),
+//                            onClick = {
+//                                selectedGender = i
+//                                dropdown = false
+//                            }) {
+//                            Text(text = i, color = Color.Black)
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -212,6 +232,7 @@ fun onetimeform(mynavHostController: NavHostController) {
             )
         )
 
+
         Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
@@ -231,6 +252,19 @@ fun onetimeform(mynavHostController: NavHostController) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+        RadioGroup(
+            options = listOf("upto 10th", "12th" , "Graduation","Masters and Above"),
+            selectedOption = education,
+            label = "Education",
+            onOptionSelected = {}
+        )
+
+        RadioGroup(
+            options = listOf("< 10000", "10000 to 20000" , "20000 to 35000","35000 to 50000","> 50000"),
+            selectedOption = income,
+            label = "Average monthly income ( in Indian rupees)",
+            onOptionSelected = {}
+        )
 
         OutlinedTextField(
             value = workAddress,
@@ -282,7 +316,9 @@ data class MyUserData(
     val phone: String,
     val homeAddress: String,
     val workAddress: String,
-    val selectedGender: String
+    val selectedGender: String,
+    val education: String,
+    val income: String
 )
 
 @RequiresApi(Build.VERSION_CODES.O)

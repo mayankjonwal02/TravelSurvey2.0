@@ -18,7 +18,7 @@ import com.jonwal.travel_survey_4.navigation.navgraph
 import com.jonwal.travel_survey_4.navigation.screens
 import com.jonwal.travel_survey_4.screens.Disclaimer
 import com.jonwal.travel_survey_4.screens.dayOneForm
-import com.jonwal.travel_survey_4.screens.loc
+//import com.jonwal.travel_survey_4.screens.loc
 //import com.jonwal.travel_survey_4.screens.onetimeform
 import com.jonwal.travel_survey_4.ui.theme.Travel_survey_4Theme
 import onetimeform

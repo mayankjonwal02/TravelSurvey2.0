@@ -60,7 +60,7 @@ fun ServiceRunning(mynavHostController: NavHostController)
                 , colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue, contentColor = Color.White)
         ) {
             Text(
-                text = "Stop Service",
+                text = "Stop Saving Location Data",
 
             )
         }
@@ -82,7 +82,7 @@ fun ServiceRunning(mynavHostController: NavHostController)
 
             ) {
             Text(
-                text = "Share Trip Experience",
+                text = "Start Survey",
 
                 )
         }
@@ -126,7 +126,7 @@ fun startservice(mynavHostController: NavHostController)
             , colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue, contentColor = Color.White)
         ) {
             Text(
-                text = "Start Survey",
+                text = "Start Saving Location Data",
 
                 )
         }
@@ -149,7 +149,7 @@ fun startservice(mynavHostController: NavHostController)
 
             ) {
             Text(
-                text = "Share Trip Experience",
+                text = "Start Survey",
 
                 )
         }

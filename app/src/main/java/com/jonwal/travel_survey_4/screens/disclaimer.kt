@@ -1,11 +1,13 @@
 package com.jonwal.travel_survey_4.screens
 
 import android.app.Activity
+import android.app.Notification.Action
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -36,6 +38,7 @@ import com.jonwal.travel_survey_4.navigation.screens
 
 @Composable
 fun Disclaimer(mynavHostController: NavHostController) {
+    var context = LocalContext.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -156,6 +159,18 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     )
                     Spacer(modifier = Modifier.height(3.dp))
 
+
+                    TextButton(onClick = {
+                        var intent = Intent(Intent.ACTION_VIEW , Uri.parse("https://docs.google.com/document/d/e/2PACX-1vQH8or-oWvtAlJgjsjv6pdneMG09snfrQ2uqScQpHbstrun9u3ySZGUpKd_nVYd3_zB_p8lLj9sXUZK/pub"))
+
+                        context.startActivity(intent)
+
+                    },
+                    colors = ButtonDefaults.textButtonColors(backgroundColor = Color.White , contentColor = Color.Magenta)) {
+
+                        Text(text = "Privacy Policy", color = Color.Magenta)
+                    }
+                    Spacer(modifier = Modifier.height(3.dp))
 
                     Text(
                         text = "Please Select “Accept” if you read the information above and agree to participate in this study.",

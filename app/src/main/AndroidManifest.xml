@@ -7,22 +7,27 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/travelsurvey"
+
+        android:icon="@drawable/icon2"
+        android:roundIcon="@drawable/icon2"
         android:label="Travel Survey"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.Travel_survey_4"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
+
             android:exported="true"
-            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:label="Travel Survey"
             android:theme="@style/Theme.Travel_survey_4">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondaryActivity"
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".SecondaryActivity"
+            android:label="Travel Survey"
+
             android:exported="false"
             android:theme="@style/Theme.Travel_survey_4"/>
 
