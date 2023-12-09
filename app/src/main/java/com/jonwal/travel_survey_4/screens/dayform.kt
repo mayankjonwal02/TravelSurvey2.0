@@ -51,6 +51,7 @@ fun dayOneForm(mynavHostController: NavHostController) {
     var tripChainMade1 =  remember { mutableStateOf("") }
     var tripPurpose1 = remember { mutableStateOf("") }
     var modeOfTravel1 = remember { mutableStateOf("") }
+    var modeOfTravel2 = remember { mutableStateOf("") }
 
     var householdVehicleUsed1 = remember { mutableStateOf("") }
     var departureTime1 = remember { mutableStateOf("") }
@@ -100,7 +101,7 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 arrivalTime1.value,
                 travelCost1.value,
                 duration1.value,
-
+                modeOfTravel2.value,
                 personsTravelling1.value,
                 moreTrips1.value,
                 tripno.value,
@@ -167,7 +168,7 @@ fun dayOneForm(mynavHostController: NavHostController) {
             fontWeight = FontWeight.ExtraBold,
         )
         RadioGroup(options = listOf("1","2","3","4","5","6","7","8","9","10"), selectedOption = day , onOptionSelected = { /*TODO*/ }, label = "Day")
-        RadioGroup(options = listOf("Trip_1","Trip_2"), selectedOption = tripno , onOptionSelected = { /*TODO*/ }, label = "Trip No.")
+        RadioGroup(options = listOf("Trip_1","Trip_2","Trip_3","Trip_4","Trip_5","Trip_6","Trip_7"), selectedOption = tripno , onOptionSelected = { /*TODO*/ }, label = "Trip No.")
 
 
         OutlinedTextField(
@@ -194,6 +195,30 @@ fun dayOneForm(mynavHostController: NavHostController) {
             , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
+
+        RadioGroup(
+            options = listOf(
+                "Bus",
+                "Mini-Bus",
+                "Two-wheeler",
+                "Auto",
+                "Taxi / Ola / Uber",
+                "Car",
+                "Walking",
+                "Bicycle"
+            ),
+            selectedOption = modeOfTravel1,
+            label = "Mode of Travel for the trip",
+            onOptionSelected = {}
+        )
+
+
+        RadioGroup(
+            options = listOf("Yes", "No"),
+            selectedOption = householdVehicleUsed1,
+            label = "Household Vehicle used",
+            onOptionSelected = {}
+        )
 
         RadioGroup(
             options = listOf(
@@ -228,32 +253,26 @@ fun dayOneForm(mynavHostController: NavHostController) {
                     .padding(8.dp)
                 , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
             )
+
+            RadioGroup(
+                options = listOf(
+                    "Bus",
+                    "Mini-Bus",
+                    "Two-wheeler",
+                    "Auto",
+                    "Taxi / Ola / Uber",
+                    "Car",
+                    "Walking",
+                    "Bicycle"
+                ),
+                selectedOption = modeOfTravel2,
+                label = "Mode of Travel for the trip",
+                onOptionSelected = {}
+            )
         }
 
 //        Text("Mode of Travel")
-        RadioGroup(
-            options = listOf(
-                "Bus",
-                "Mini-Bus",
-                "Two-wheeler",
-                "Auto",
-                "Taxi",
-                "Car",
-                "Walking",
-                "Bicycle"
-            ),
-            selectedOption = modeOfTravel1,
-            label = "Mode of Travel for the trip",
-            onOptionSelected = {}
-        )
 
-
-        RadioGroup(
-            options = listOf("Yes", "No"),
-            selectedOption = householdVehicleUsed1,
-            label = "Household Vehicle used",
-            onOptionSelected = {}
-        )
 
 
 
@@ -315,7 +334,7 @@ fun dayOneForm(mynavHostController: NavHostController) {
             value = travelCost1.value,
             singleLine = true,
             onValueChange = { travelCost1.value = it },
-            label = { Text("Travel Cost (In Rs)") },
+            label = { Text("Travel Cost (In ₹)") },
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number),
             modifier = Modifier
@@ -527,7 +546,7 @@ data class origin_destination(
     , val arrivalTime : String
     , val travelCost : String
     , val duration : String
-
+    , val Trip_chain_mode : String
     , val no_of_friends : String
     , val more_Trips : String
     , val trip_no : String

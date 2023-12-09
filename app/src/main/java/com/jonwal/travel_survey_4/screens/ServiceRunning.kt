@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -13,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -29,7 +34,8 @@ fun ServiceRunning(mynavHostController: NavHostController)
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Color.White)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -101,10 +107,69 @@ fun startservice(mynavHostController: NavHostController)
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
+            .background(Color.White)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Column(modifier = Modifier.fillMaxWidth().padding(top = 20.dp) , horizontalAlignment = Alignment.Start){
+            Text(
+                text = "Instructions for completing the survey:",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(10.dp),
+                fontWeight = FontWeight.ExtraBold
+            )
+            Text(
+                text = "1. Kindly keep your mobile internet and location on.",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "2. Please click on saving the location data and keep this app running in the background during your trips",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "3. A Trip is defined as a one-way course of travel with a single main/primary purpose. Origin is defined as the start of the trip and Destination as the end of the trip.",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "4. A Trip Chain happens when you make more than one stop with any other purpose than the main purpose.",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "5. A Trip Leg is a Trip made between two consecutive stops. You need to fill information about your daily travel  (Mainly commute) for the next few days. You can fill up to 7 trips per day based on the importance of the trip. ",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "6. Kindly click on Start Filling Trip information to fill in the trip details. ",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "7. The Satisfaction Level chosen will be defined in Feedback after selection. ",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
+            )
+            Text(
+                text = "We appreciate you taking part in this survey. ",
+                color = Color.Black,
+                fontFamily = FontFamily.Default,
+                modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp , end = 30.dp),
+                fontStyle = FontStyle.Italic
+            )
+        }
         // Display "Service Running" in blue color and larger text
 
         // Create a BasicTextField for user input
@@ -131,12 +196,6 @@ fun startservice(mynavHostController: NavHostController)
                 )
         }
 
-    }
-    Box(modifier = Modifier
-
-        .fillMaxSize()
-        .background(Color.Transparent), contentAlignment = Alignment.BottomEnd)
-    {
         Button(
             onClick = {
 
@@ -153,7 +212,30 @@ fun startservice(mynavHostController: NavHostController)
 
                 )
         }
+
     }
+//    Box(modifier = Modifier
+//
+//        .fillMaxSize()
+//        .background(Color.Transparent), contentAlignment = Alignment.BottomEnd)
+//    {
+//        Button(
+//            onClick = {
+//
+//
+//                mynavHostController.navigate(screens.dayform.route)
+//
+//            },
+//            modifier = Modifier.padding(end = 10.dp)
+//            , colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue, contentColor = Color.White),
+//
+//            ) {
+//            Text(
+//                text = "Start Survey",
+//
+//                )
+//        }
+//    }
 
 
 }
