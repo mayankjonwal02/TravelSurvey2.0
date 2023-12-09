@@ -216,7 +216,8 @@ fun onetimeform(mynavHostController: NavHostController) {
 
         OutlinedTextField(
             value = phone,
-            onValueChange = { phone = it },
+
+            onValueChange = { if(it.length <= 10){ phone = it }else{Toast.makeText(context,"Length should be 10",Toast.LENGTH_SHORT).show()} },
             label = { Text("Phone no.") },
             modifier = Modifier
                 .fillMaxWidth()
