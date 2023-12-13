@@ -164,7 +164,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .padding(20.dp),
             text = "Trip information",
             style = MaterialTheme.typography.h5,
-            color = Color.Black,
+            color = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black },
             fontWeight = FontWeight.ExtraBold,
         )
         RadioGroup(options = listOf("1","2","3","4","5","6","7","8","9","10"), selectedOption = day , onOptionSelected = { /*TODO*/ }, label = "Day")
@@ -180,7 +181,12 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(8.dp)
-            , colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue, textColor = Color.Black, backgroundColor = Color.White)
+
+
+
+
+            , colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue, textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White)
         )
 
         OutlinedTextField(
@@ -192,7 +198,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(8.dp)
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor =if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
 
@@ -251,7 +258,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                     .fillMaxWidth()
                     .background(Color.White)
                     .padding(8.dp)
-                , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+                , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
             )
 
             RadioGroup(
@@ -300,7 +308,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                         }
                     }
                 }
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
         OutlinedTextField(
@@ -327,7 +336,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                         }
                     }
                 }
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
         OutlinedTextField(
@@ -341,7 +351,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(8.dp)
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
 
@@ -354,7 +365,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(8.dp)
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
 
@@ -377,7 +389,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                     .fillMaxWidth()
                     .background(Color.White)
                     .padding(8.dp)
-                , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+                , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
             )
         }
 
@@ -392,7 +405,8 @@ fun dayOneForm(mynavHostController: NavHostController) {
                 .fillMaxWidth()
                 .background(Color.White)
                 .padding(8.dp)
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
 
 //        Text("Did You make any more trips")
@@ -511,7 +525,8 @@ fun RadioGroup(
                 Icons.Filled.ArrowDropDown
             }else
             {Icons.Filled.KeyboardArrowUp}, tint = Color.Blue,contentDescription = "", modifier = Modifier.clickable{showdropdown = !showdropdown})}
-            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = Color.Black, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
+            , colors = TextFieldDefaults.outlinedTextFieldColors(textColor = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, backgroundColor = Color.White, unfocusedBorderColor = Color.Gray, unfocusedLabelColor = Color.Gray, focusedLabelColor = Color.Blue, focusedBorderColor = Color.Blue)
         )
         DropdownMenu(modifier = Modifier
             .background(Color.White)
@@ -524,7 +539,8 @@ fun RadioGroup(
                     showdropdown = false
                                            }, modifier = Modifier.background(
                     Color.White)) {
-                    Text(text = i, color = Color.Black)
+                    Text(text = i,   color = if(isSystemInDarkTheme()){
+                        Color.Blue}else{ Color.Black },)
                 }
             }
 

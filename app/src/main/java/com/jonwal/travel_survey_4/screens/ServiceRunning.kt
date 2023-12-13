@@ -4,13 +4,14 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -112,59 +113,68 @@ fun startservice(mynavHostController: NavHostController)
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Column(modifier = Modifier.fillMaxWidth().padding(top = 20.dp) , horizontalAlignment = Alignment.Start){
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 20.dp) , horizontalAlignment = Alignment.Start){
             Text(
                 text = "Instructions for completing the survey:",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(10.dp),
                 fontWeight = FontWeight.ExtraBold
             )
             Text(
                 text = "1. Kindly keep your mobile internet and location on.",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "2. Please click on saving the location data and keep this app running in the background during your trips",
-                color = Color.Black,
-                fontFamily = FontFamily.Default,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },                fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "3. A Trip is defined as a one-way course of travel with a single main/primary purpose. Origin is defined as the start of the trip and Destination as the end of the trip.",
-                color = Color.Black,
-                fontFamily = FontFamily.Default,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },                fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "4. A Trip Chain happens when you make more than one stop with any other purpose than the main purpose.",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "5. A Trip Leg is a Trip made between two consecutive stops. You need to fill information about your daily travel  (Mainly commute) for the next few days. You can fill up to 7 trips per day based on the importance of the trip. ",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "6. Kindly click on Start Filling Trip information to fill in the trip details. ",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "7. The Satisfaction Level chosen will be defined in Feedback after selection. ",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp, end = 30.dp)
             )
             Text(
                 text = "We appreciate you taking part in this survey. ",
-                color = Color.Black,
+                color = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
                 fontFamily = FontFamily.Default,
                 modifier = Modifier.padding(top = 10.dp , bottom = 10.dp , start = 30.dp , end = 30.dp),
                 fontStyle = FontStyle.Italic

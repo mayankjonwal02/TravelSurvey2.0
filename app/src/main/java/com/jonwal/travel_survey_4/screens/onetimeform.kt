@@ -4,12 +4,9 @@ import android.os.Build
 import android.provider.Settings
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -97,7 +94,8 @@ fun onetimeform(mynavHostController: NavHostController) {
             textAlign = TextAlign.Center,
             text = "User-Data",
             style = MaterialTheme.typography.h5,
-            color = Color.Black,
+            color = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black },
             fontWeight = FontWeight.ExtraBold
         )
         OutlinedTextField(
@@ -112,7 +110,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -190,7 +190,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -208,7 +210,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -229,7 +233,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -248,7 +254,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color                .Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -279,7 +287,9 @@ fun onetimeform(mynavHostController: NavHostController) {
                 unfocusedBorderColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,
                 focusedLabelColor = Color.Blue,
-                focusedBorderColor = Color.Blue
+                focusedBorderColor = Color.Blue,
+                textColor = if(isSystemInDarkTheme()){
+                    Color.Blue}else{ Color.Black },
             )
         )
 
@@ -289,7 +299,8 @@ fun onetimeform(mynavHostController: NavHostController) {
         Text(
             text = "*Please note that your information will remain confidential and not be shared with anyone.",
             style = MaterialTheme.typography.body2,
-            color = Color.Gray
+            color = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Gray },
         )
         Spacer(modifier = Modifier.width(20.dp))
 
@@ -304,7 +315,8 @@ fun onetimeform(mynavHostController: NavHostController) {
             ),
             border = BorderStroke(2.dp, Color.Blue)
         ) {
-            Text(text = "Submit")
+            Text(text = "Submit" , color = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black },)
         }
     }
 }

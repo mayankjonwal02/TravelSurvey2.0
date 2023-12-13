@@ -1,6 +1,7 @@
 package com.jonwal.travel_survey_4.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
@@ -40,7 +41,8 @@ fun KindRadioGroupUsage(question : String ,feedback: String, setSelected: (Strin
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White),
-            color = Color.Black,
+            color =if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black },
 
             )
         KindRadioGroup(
@@ -53,7 +55,8 @@ fun KindRadioGroupUsage(question : String ,feedback: String, setSelected: (Strin
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White),
-            color = Color.Black, fontWeight = FontWeight.ExtraBold,
+            color = if(isSystemInDarkTheme()){
+                Color.Blue}else{ Color.Black }, fontWeight = FontWeight.ExtraBold,
 
         )
     }
@@ -84,7 +87,8 @@ fun KindRadioGroup(
                         .weight(1f)
                         .padding(bottom = 10.dp)
                 ) {
-                    Text(text = item.value, fontSize = 30.sp, modifier = Modifier.padding(3.dp), color = Color.Black, textAlign = TextAlign.Center)
+                    Text(text = item.value, fontSize = 30.sp, modifier = Modifier.padding(3.dp), color =if(isSystemInDarkTheme()){
+                        Color.Blue}else{ Color.Black }, textAlign = TextAlign.Center)
                     Spacer(modifier = Modifier.height(5.dp))
                     RadioButton(
                         selected = selected == item.key,

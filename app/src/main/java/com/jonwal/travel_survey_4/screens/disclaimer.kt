@@ -8,12 +8,9 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -60,39 +57,46 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     textAlign = TextAlign.Center,
                     text = "Disclaimer",
                     style = MaterialTheme.typography.h5,
-                    color = Color.Black,
+                    color = if(isSystemInDarkTheme()){
+                        Color.Blue}else{ Color.Black },
                     fontWeight = FontWeight.ExtraBold
                 )
                 Column(modifier = Modifier.verticalScroll(rememberScrollState())){
                     Text(
                         text = "Dear Respondent,",
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                     )
                     Spacer(modifier = Modifier.height(3.dp))
                     Text(
                         text ="Thank you for installing the application and taking part in this study." ,
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                     )
                     Spacer(modifier = Modifier.height(3.dp))
 
                     Text(
                         text = "Please follow the guidelines given by the Surveyor.",
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                     )
                     Spacer(modifier = Modifier.height(3.dp))
 
                     var a = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontSize = 16.sp, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontSize = 16.sp,   color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },)) {
                             append("The app aims to understand the travel behaviour in Jodhpur city as part of an ongoing research at the  ")
                         }
-                        withStyle(style = SpanStyle(fontSize = 16.sp, fontWeight = FontWeight.ExtraBold, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontSize = 16.sp, fontWeight = FontWeight.ExtraBold , color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },)) {
                             append("Indian Institute of Technology Jodhpur")
                         }
                     }
-                    Text(text = a)
+                    Text(text = a,  color = if(isSystemInDarkTheme()){
+                        Color.Blue}else{ Color.Black },)
 //                    Text(
 //                            text = "The app aims to understand the travel behaviour in Jodhpur city as part of an ongoing research at the  Indian Institute of Technology Jodhpur.",
 //                    style = MaterialTheme.typography.body1,
@@ -103,41 +107,46 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     Text(
                     text ="The app needs permission to collect the location data of your smartphone." ,
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
-                )
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },                )
                     Spacer(modifier = Modifier.height(3.dp))
 
                     Text(
                         text = "We respect your privacy",
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
-                    , fontWeight = FontWeight.ExtraBold
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
+                     fontWeight = FontWeight.ExtraBold
                     )
                     Spacer(modifier = Modifier.height(3.dp))
 
                     Text(
                     text = "We uphold the ethical principles of respecting your personal information and handling your data. Your trust is our utmost priority. The data collected in this study will be used for academic purposes only and will not be shared with anyone other than the research team.\n",
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                 )
                     Spacer(modifier = Modifier.height(3.dp))
 
                     Text(
                         text ="We request that you keep the app running for the time of the survey, especially during your daily travel. The study will be conducted in two parts." ,
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                     )
                     Spacer(modifier = Modifier.height(15.dp))
 
                     Text(
                     text ="- Collect the location data using this application for the next ten days and some preliminary questions taking 3-5 mins of your time daily." ,
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                 )
                     Text(
                         text ="- A questionnaire-based survey self administered or by the surveyor, taking 10-15 mins of your time.",
                     style = MaterialTheme.typography.body1,
-                    color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
                     )
                     Spacer(modifier = Modifier.height(15.dp))
 
@@ -145,7 +154,8 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     Text(
                         text = "Your participation is voluntary, and we do not collect any personally identifiable information as part of this survey. Your responses are confidential, and your identity will never be public.",
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
 //                        , fontWeight = FontWeight.ExtraBold
                     )
                     Spacer(modifier = Modifier.height(3.dp))
@@ -154,7 +164,8 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     Text(
                         text = "For any questions, please feel free to contact Dr Ranju Mohan at ranju@iitj.ac.in or Shahiq Wani at wani.1@iitj.ac.in",
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
 //                        , fontWeight = FontWeight.ExtraBold
                     )
                     Spacer(modifier = Modifier.height(3.dp))
@@ -175,7 +186,8 @@ fun Disclaimer(mynavHostController: NavHostController) {
                     Text(
                         text = "Please Select “Accept” if you read the information above and agree to participate in this study.",
                         style = MaterialTheme.typography.body1,
-                        color = Color.Black
+                        color = if(isSystemInDarkTheme()){
+                            Color.Blue}else{ Color.Black },
 //                        , fontWeight = FontWeight.ExtraBold
                     )
                     Spacer(modifier = Modifier.height(3.dp))
